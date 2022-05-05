@@ -1,7 +1,10 @@
 import React from 'react'
 import { useMemo } from 'react';
 import { Navigate, useNavigate, useParams } from 'react-router-dom'
+import { heroImages } from '../../helpers/heroImages';
 import { getHeroById } from '../../selectors/getHeroById';
+
+//const heroImages = require.context('../../assets', true);
 
 export const HeroScreen = () => {
 
@@ -29,11 +32,12 @@ export const HeroScreen = () => {
 
   const imagePath = `/assets/${ id }.jpg`;
 
+
   return (
    <div className="row mt-5">
      <div className="col-4">
        <img 
-        src={imagePath} 
+        src={heroImages(`./${ heroeId }.jpg`)} 
         alt={superhero}
         className="img-thumbnail animate__animated animate__fadeInLeft" />
      </div>
